@@ -8,6 +8,7 @@
 <body class='container'>
   <h1>Authentication On Our Server</h1>
   <form action='http://localhost:4000/v1/oauth/authorize' method="post">
+  <!-- <form action='/oauth/authorize' method="post"></form> -->
     <p>These inputs should be hidden in production</p>
     <div class='form-group'>
       <label>Client Id</label>
@@ -28,6 +29,10 @@
     <div class='form-group'>
       <label>State</label>
       <input class='form-control' name='state'/>
+    </div>
+    <div class='form-group'>
+      <label>scope</label>
+      <input class='form-control' name='scope'/>
     </div>
     <p>Any other inputs are used to help validate the client, run other custom actions on the server, etc...</p>
     <p>

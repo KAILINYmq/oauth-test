@@ -35,6 +35,7 @@
   function onClick() {
 
     fetch('http://localhost:4000/v1/oauth/token', {
+    // fetch('/oauth/token', {
       method: 'POST',
       body: `code=${code}&client_secret=${secret}&client_id=${id}&grant_type=authorization_code`, // this is how we send that data up
       headers: {
@@ -56,8 +57,10 @@
     const authorization = `${tokenType} ${token}`
     console.log('Bearer token:', authorization)
     fetch('http://localhost:4000/v1/oauth/secure/', {
+    // fetch('http/oauth/secure/', {
       headers: new Headers({
         Authorization: authorization,
+        "x-api-key": "sssss",
       }),
     })
       .then(res => res.json())
@@ -71,6 +74,7 @@
   }
   function refreshTokenNow() {
     fetch('http://localhost:4000/v1/oauth/token', {
+    // fetch('/oauth/token', {
       method: 'POST',
       body: `refresh_token=${refreshToken}&client_secret=${secret}&client_id=${id}&grant_type=refresh_token`,
       headers: {
